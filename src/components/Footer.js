@@ -52,11 +52,16 @@ export class Footer extends React.Component {
                   dangerouslySetInnerHTML={{
                   __html: replaceAll(dictionary.footerMessage, {
                   "{p1}": this.state.displayName,
-                  "{p2}": this.state.providerId
+                  "{p2}": this.state.providerId == "google.com" && "Google" || 
+                  this.state.providerId == "password" && "E-mail: " || 
+                  this.state.providerId == "github.com" && "GitHub: " || 
+                  this.state.providerId == "facebook.com" && "Facebook: " || 
+                  this.state.providerId == "twitter.com" && "Twitter: ",
+                  "{p3}": "&lt;" + this.state.email + "&gt;"
                   })
                   }}>
               </h4>
-              {this.state.email}
+
                 {this.state.displayName}
                 &nbsp;you're logged in via{' '}
                 

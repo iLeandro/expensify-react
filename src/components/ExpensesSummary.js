@@ -12,7 +12,7 @@ import { showAll } from "../actions/filters"
 
 import replaceAll from '../utils/replaceAll';
 
-export const ExpensesSummary = ({ expenses, expensesTotal, filters, visibleExpenseCount, visibleExpensesTotal, dictionary }) => {
+export const ExpensesSummary = ({ expenses, expensesTotal, filters, visibleExpenseCount, visibleExpensesTotal, dictionary, locale }) => {
     const expenseCount = expenses.length
     const filteredExpensesCount = expenseCount - visibleExpenseCount
     const visibleExpenseWord = visibleExpenseCount === 1 ? 'expense' : 'expenses'
@@ -65,8 +65,17 @@ export const ExpensesSummary = ({ expenses, expensesTotal, filters, visibleExpen
                             "{p1}": `<span>${filteredExpensesCount}</span>`,
              
 
-                            "{p2}": filteredExpensesCount === 1 ? ' expense is not ' : ' expenses are not',
-                                    
+                            //"{p2}": filteredExpensesCount === 1 ? ' despesa is not ' : ' expenses are not',
+                            "{p2}": locale == "pt" ? (filteredExpensesCount === 1 ? ' despesa não está a ser filtrada' : ' despesas não estão a ser filtradas') :
+                             locale == "en" ? (filteredExpensesCount === 1 ? " expense is not" : " expenses are not") : 
+                            "teste",
+
+                            // '{p1} {p2} being filtered ({p3} Total)',
+                            // {p1} {p2} não est + á/ão a ser filtrada + s ( {p3} Total )',
+
+                            //a ? (b ? (c ? d : e) : (d ? e : f)) : f ? (g ? h : i) : j;
+                            //"{p2}": locale + dictionary,
+
 
                             "{p3}": `<span>${formattedFilteredExpensesTotal}</span>`
                         })

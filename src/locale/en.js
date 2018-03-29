@@ -5,7 +5,7 @@ export default {
     logoutButton: 'Log out',
 
     summaryMessageTitle: 'Viewing {p1} expense{p2} totalling {p3}',
-    summaryMessageSubitle: '{p1} {p2} being filtered {p3}',
+    summaryMessageSubitle: '{p1} {p2} being filtered ({p3} Total)',
 
     summaryMessageNoExpenses: 'No expenses found in database. Go out and spend some money!',
     summaryMessageNoMatch: 'No expenses match the current filter criteria',
@@ -41,5 +41,5 @@ export default {
     saveExpenseButton: 'Save',
     newExpenseButton: 'Add',
 
-    footerMessage: '{p1} you\'re logged in via {p2}: <{p3}>',
+    footerMessage: '{p1} you\'re logged in via {p2}: {p3}',
   }
